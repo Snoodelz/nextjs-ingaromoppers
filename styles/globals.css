@@ -18,3 +18,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+em {
+  font-size: 14px;
+}

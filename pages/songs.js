@@ -9,7 +9,7 @@ export default function Songs() {
       <Navbar />
       <div className="mx-auto max-w-md">
         <Image alt="Logo" src={logo} />
-        <h1 className="text-center">VÅR OFFICIELLA SÅNGBOK</h1>
+        <h1 className="text-center">OFFICIELLA SÅNGBOK</h1>
       </div>
 
       <div
@@ -21,6 +21,7 @@ export default function Songs() {
         <div className="collapse-title text-xl font-medium">Moppers stad</div>
         <div className="collapse-content">
           <em>Melodi: Kalmare stad</em>
+          <br />
           <br />
           <p>||: Sångare: Ut i kalmare stad,</p>
           <p>Alla: ja där finns det inge Moppers, :||</p>
@@ -81,7 +82,8 @@ export default function Songs() {
         <div className="collapse-title text-xl font-medium">Grekland</div>
         <div className="collapse-content">
           <em>Melodi: Marche militaire</em>
-
+          <br />
+          <br />
           <p>
             Ingar&ouml; Moppers
             <br />
@@ -128,7 +130,8 @@ export default function Songs() {
         <div className="collapse-title text-xl font-medium">Mera lima</div>
         <div className="collapse-content">
           <em>Melodi: internationalen</em>
-
+          <br />
+          <br />
           <p>
             Mera lima i glaset,
             <br />
@@ -161,7 +164,8 @@ export default function Songs() {
         </div>
         <div className="collapse-content">
           <em>Melodi: Vem kan segla</em>
-
+          <br />
+          <br />
           <p>
             Vem kan t&auml;nda en eld i regn?
             <br />
@@ -188,7 +192,8 @@ export default function Songs() {
         <div className="collapse-title text-xl font-medium">Sover Nazar?</div>
         <div className="collapse-content">
           <em>Melodi: broder Jacob</em>
-
+          <br />
+          <br />
           <p>
             |: Var &auml;r Nazar? :||
             <br />
@@ -211,7 +216,8 @@ export default function Songs() {
         </div>
         <div className="collapse-content">
           <em>Melodi: Somewhere over the rainbow</em>
-
+          <br />
+          <br />
           <p>
             F&ouml;rspel: Ooooo i ackord
             <br />
@@ -252,7 +258,8 @@ export default function Songs() {
         </div>
         <div className="collapse-content">
           <em>Melodi: En kväll i Juni</em>
-
+          <br />
+          <br />
           <p>
             Ja det &auml;r en kv&auml;ll i juni,
             <br />

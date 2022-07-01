@@ -43,7 +43,7 @@ export default function Navbar() {
                 data-choose-theme
                 className="select select-accent w-full max-w-xs"
               >
-                <option value="">Default</option>
+                <option value="light">Light</option>
                 <option value="dark">Dark</option>
                 <option value="cyberpunk">Cyberpunk</option>
               </select>
@@ -64,7 +64,7 @@ export default function Navbar() {
 
           <li>
             <select data-choose-theme className="">
-              <option value="">Default</option>
+              <option value="light">Light</option>
               <option value="dark">Dark</option>
               <option value="cyberpunk">Cyberpunk</option>
             </select>
