@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Navbar from "../components/navbar";
 import logo from "../img/moppersLogga.png";
+import Song from "../components/song";
 
 export default function Songs() {
   return (
@@ -12,6 +13,7 @@ export default function Songs() {
         <h1 className="text-center">OFFICIELLA SÅNGBOK</h1>
       </div>
 
+      <Song />
       <div
         tabIndex="0"
         className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box m-4 max-w-lg mx-auto"
