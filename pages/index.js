@@ -4,7 +4,7 @@ import logo from "../img/moppersLogga.png";
 import Navbar from "../components/navbar";
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
+export default function Home({ animals }) {
   return (
     <div>
       <Navbar />
