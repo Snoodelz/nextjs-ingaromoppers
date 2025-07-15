@@ -15,7 +15,7 @@ export default function Songs({ songs }) {
       </div>
       {songs.length > 0 && (
         <ul>
-          {songs.map((song) => (
+          {songs.map((song, index) => (
             <div
               key={song._id}
               tabIndex={song._id}
@@ -24,7 +24,7 @@ export default function Songs({ songs }) {
               <input type="checkbox" />
 
               <div className="collapse-title text-xl font-medium">
-                {song.title}
+                {index + 1}. {song.title}
               </div>
               <div className="collapse-content">
                 <em>Melodi: {song.melody}</em>
