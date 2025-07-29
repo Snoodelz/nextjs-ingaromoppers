@@ -16,8 +16,8 @@ import React, { useState, useEffect } from "react";
 
 function Countdown() {
 	const calculateTimeLeft = () => {
-		// The target date for prague is August 8th of the current year
-		const targetDate = new Date(new Date().getFullYear(), 7, 7); // Month is 0-indexed, so 7 is August
+		// NEW: Updated the target date to August 7th at 09:30 AM.
+		const targetDate = new Date(new Date().getFullYear(), 7, 7, 9, 30, 0); // year, month (0-indexed), day, hour, minute, second
 		const difference = +targetDate - +new Date();
 		let timeLeft = {};
 
@@ -33,23 +33,22 @@ function Countdown() {
 		return timeLeft;
 	};
 
-	// useState hook to store the time left.
-	// It's like a component-level variable that re-renders the component when it changes.
 	const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
-	// useEffect hook to run the timer.
-	// This code runs after the component mounts and updates every second.
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setTimeLeft(calculateTimeLeft());
 		}, 1000);
-		// This cleans up the timer when the component is removed to prevent memory leaks.
 		return () => clearTimeout(timer);
 	});
 
+	if (Object.keys(timeLeft).length === 0) {
+		return null;
+	}
+
 	return (
 		<div className="text-center">
-			<h2 className="text-2xl font-bold mb-2">Prag Countdown! 🍻</h2>
+			<h2 className="text-2xl font-bold mb-2">Prag Flight Countdown! ✈️</h2>
 			<div className="grid grid-flow-col gap-5 text-center auto-cols-max">
 				<div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
 					<span className="countdown font-mono text-5xl">
@@ -80,6 +79,7 @@ function Countdown() {
 	);
 }
 
+// Home component remains unchanged
 export default function Home({ animals }) {
 	return (
 		<div>
@@ -93,8 +93,7 @@ export default function Home({ animals }) {
 					layout="intrinsic"
 				/>
 
-				{/* Wrapper div for positioning avatars and countdown */}
-				<div className="flex justify-around items-center mt-8">
+				<div className="flex flex-col md:flex-row justify-around items-center mt-8 gap-8">
 					<div>
 						<em className="block text-center mb-2">We are moppers</em>
 						<div className="avatar-group -space-x-6">
@@ -110,7 +109,6 @@ export default function Home({ animals }) {
 						</div>
 					</div>
 
-					{/* Adding the Countdown component to the page */}
 					<Countdown />
 				</div>
 			</main>
@@ -118,6 +116,7 @@ export default function Home({ animals }) {
 	);
 }
 
+// Avatar component remains unchanged
 function Avatar({ url, namn }) {
 	return (
 		<div className="avatar">
