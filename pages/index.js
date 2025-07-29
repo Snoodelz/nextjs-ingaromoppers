@@ -48,7 +48,7 @@ function Countdown() {
 
 	return (
 		<div className="text-center">
-			<h2 className="text-2xl font-bold mb-2">Prag Flight Countdown! ✈️</h2>
+			<h2 className="text-2xl font-bold mb-2">Prag Countdown! ✈️</h2>
 			<div className="grid grid-flow-col gap-5 text-center auto-cols-max">
 				<div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
 					<span className="countdown font-mono text-5xl">

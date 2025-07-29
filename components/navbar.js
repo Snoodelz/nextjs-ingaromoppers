@@ -8,6 +8,12 @@ export default function Navbar() {
 		themeChange(false);
 		// 👆 false parameter is required for react project
 	}, []);
+
+	// We define the years here to avoid repeating the list
+	const travelYears = [
+		2015,
+	];
+
 	return (
 		<div className="navbar bg-base-100">
 			<div className="navbar-start">
