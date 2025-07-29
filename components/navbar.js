@@ -6,7 +6,6 @@ import { themeChange } from "theme-change";
 export default function Navbar() {
 	useEffect(() => {
 		themeChange(false);
-		// 👆 false parameter is required for react project
 	}, []);
 
 	// We define the years here to avoid repeating the list
@@ -43,6 +42,21 @@ export default function Navbar() {
 								<a>Sånger</a>
 							</Link>
 						</li>
+						
+						{/* Mobile dropdown menu for travels */}
+						<li tabIndex="0">
+							<a className="justify-between">
+								Våra resor
+								<svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
+							</a>
+							<ul className="p-2 bg-base-100 shadow">
+								{travelYears.map((year) => (
+									<li key={year}>
+										<Link href={`/resor/${year}`}><a>{year}</a></Link>
+									</li>
+								))}
+							</ul>
+						</li>
 
 						<li>
 							<select
@@ -66,6 +80,21 @@ export default function Navbar() {
 						<Link href="/songs">
 							<a>Sånger</a>
 						</Link>
+					</li>
+
+					{/* Desktop dropdown menu for travels */}
+					<li tabIndex="0">
+						<a>
+							Våra resor
+							<svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+						</a>
+						<ul className="p-2 bg-base-100 shadow-lg rounded-box">
+							{travelYears.map((year) => (
+								<li key={year}>
+									<Link href={`/resor/${year}`}><a>{year}</a></Link>
+								</li>
+							))}
+						</ul>
 					</li>
 
 					<li>
