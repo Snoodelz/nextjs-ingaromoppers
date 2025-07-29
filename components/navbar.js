@@ -34,7 +34,7 @@ export default function Navbar() {
 					>
 						<li>
 							<Link href="/songs">
-								<a>dängor</a>
+								<a>Sånger</a>
 							</Link>
 						</li>
 
@@ -58,7 +58,7 @@ export default function Navbar() {
 				<ul className="menu menu-horizontal p-0">
 					<li>
 						<Link href="/songs">
-							<a>dängor</a>
+							<a>Sånger</a>
 						</Link>
 					</li>
 
