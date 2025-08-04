@@ -15,40 +15,53 @@ import Nazar from "../img/Nazar.jpg";
 import React, { useState, useEffect } from "react";
 
 function Countdown() {
+	// Start with a null state, so we know the server hasn't calculated anything.
+	const [timeLeft, setTimeLeft] = useState(null);
+
 	const calculateTimeLeft = () => {
-		// NEW: Updated the target date to August 7th at 09:30 AM.
-		const targetDate = new Date(new Date().getFullYear(), 7, 7, 9, 30, 0); // year, month (0-indexed), day, hour, minute, second
+		const currentYear = new Date().getFullYear();
+		const targetDate = new Date(currentYear, 7, 7, 9, 30, 0); // 7 = August
 		const difference = +targetDate - +new Date();
-		let timeLeft = {};
+		let newTimeLeft = {};
 
 		if (difference > 0) {
-			timeLeft = {
+			newTimeLeft = {
 				days: Math.floor(difference / (1000 * 60 * 60 * 24)),
 				hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
 				minutes: Math.floor((difference / 1000 / 60) % 60),
 				seconds: Math.floor((difference / 1000) % 60),
 			};
 		}
-
-		return timeLeft;
+		return newTimeLeft;
 	};
 
-	const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
+	// This useEffect hook now runs ONLY on the client-side, after the page loads.
 	useEffect(() => {
-		const timer = setTimeout(() => {
+		// Calculate the initial time as soon as the component loads in the browser
+		setTimeLeft(calculateTimeLeft());
+
+		// Use setInterval to update the time every second.
+		const timer = setInterval(() => {
 			setTimeLeft(calculateTimeLeft());
 		}, 1000);
-		return () => clearTimeout(timer);
-	});
 
+		// This is a cleanup function that stops the timer when the component is removed.
+		return () => clearInterval(timer);
+	}, []); // The empty array [] is crucial: it tells React to run this effect only once.
+
+	// While timeLeft is null (on the server or before the first client-side render), show a loading state.
+	if (!timeLeft) {
+		return <div>Loading countdown...</div>;
+	}
+
+	// If the countdown is over, render nothing.
 	if (Object.keys(timeLeft).length === 0) {
 		return null;
 	}
 
 	return (
 		<div className="text-center">
-			<h2 className="text-2xl font-bold mb-2">Prag Countdown! ✈️</h2>
+			<h2 className="text-2xl font-bold mb-2">Prag Flight Countdown! ✈️</h2>
 			<div className="grid grid-flow-col gap-5 text-center auto-cols-max">
 				<div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
 					<span className="countdown font-mono text-5xl">
